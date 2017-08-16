@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Hello World function using SAM template
+Resources:
+  Hello:
+    Properties:
+      CodeUri: s3://umo-public/9d71ea601cd60ad56160718f809dc01d
+      Events:
+        GetHello:
+          Properties:
+            Method: get
+            Path: /
+          Type: Api
+      Handler: hello.handler
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
